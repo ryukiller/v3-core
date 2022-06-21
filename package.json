@@ -1,6 +1,6 @@
 {
-  "name": "@uniswap/v3-core",
-  "description": "🦄 Core smart contracts of Uniswap V3",
+  "name": "@ariswap/v3-core",
+  "description": "🦄 Core smart contracts of Ariswap V3",
   "license": "BUSL-1.1",
   "publishConfig": {
     "access": "public"
@@ -14,13 +14,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Uniswap/uniswap-v3-core"
+    "url": "https://github.com/Ariswap/uniswap-v3-core"
   },
   "files": [
     "contracts/interfaces",
     "contracts/libraries",
-    "artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json",
-    "artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json",
+    "artifacts/contracts/AriswapV3Factory.sol/AriswapV3Factory.json",
+    "artifacts/contracts/AriswapV3Pool.sol/AriswapV3Pool.json",
     "artifacts/contracts/interfaces/**/*.json",
     "!artifacts/contracts/interfaces/**/*.dbg.json"
   ],

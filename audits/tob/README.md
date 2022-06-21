@@ -5,7 +5,7 @@ The following contains the properties written by Trail of Bits.
 
 # End to End testing with Echidna
 
-We've implemented end-to-end properties for the Uniswap V3 Core pool contract.
+We've implemented end-to-end properties for the Ariswap V3 Core pool contract.
 
 ## Installation
 

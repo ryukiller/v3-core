@@ -1,8 +1,8 @@
 import { Wallet } from 'ethers'
 import { ethers, waffle } from 'hardhat'
 import { TestERC20 } from '../typechain/TestERC20'
-import { UniswapV3Factory } from '../typechain/UniswapV3Factory'
-import { MockTimeUniswapV3Pool } from '../typechain/MockTimeUniswapV3Pool'
+import { AriswapV3Factory } from '../typechain/AriswapV3Factory'
+import { MockTimeAriswapV3Pool } from '../typechain/MockTimeAriswapV3Pool'
 import { expect } from './shared/expect'
 
 import { poolFixture } from './shared/fixtures'
@@ -18,8 +18,8 @@ import {
   getMaxTick,
   expandTo18Decimals,
 } from './shared/utilities'
-import { TestUniswapV3Router } from '../typechain/TestUniswapV3Router'
-import { TestUniswapV3Callee } from '../typechain/TestUniswapV3Callee'
+import { TestAriswapV3Router } from '../typechain/TestAriswapV3Router'
+import { TestAriswapV3Callee } from '../typechain/TestAriswapV3Callee'
 
 const feeAmount = FeeAmount.MEDIUM
 const tickSpacing = TICK_SPACINGS[feeAmount]
@@ -28,15 +28,15 @@ const createFixtureLoader = waffle.createFixtureLoader
 
 type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
 
-describe('UniswapV3Pool', () => {
+describe('AriswapV3Pool', () => {
   let wallet: Wallet, other: Wallet
 
   let token0: TestERC20
   let token1: TestERC20
   let token2: TestERC20
-  let factory: UniswapV3Factory
-  let pool0: MockTimeUniswapV3Pool
-  let pool1: MockTimeUniswapV3Pool
+  let factory: AriswapV3Factory
+  let pool0: MockTimeAriswapV3Pool
+  let pool1: MockTimeAriswapV3Pool
 
   let pool0Functions: PoolFunctions
   let pool1Functions: PoolFunctions
@@ -44,8 +44,8 @@ describe('UniswapV3Pool', () => {
   let minTick: number
   let maxTick: number
 
-  let swapTargetCallee: TestUniswapV3Callee
-  let swapTargetRouter: TestUniswapV3Router
+  let swapTargetCallee: TestAriswapV3Callee
+  let swapTargetRouter: TestAriswapV3Router
 
   let loadFixture: ReturnType<typeof createFixtureLoader>
   let createPool: ThenArg<ReturnType<typeof poolFixture>>['createPool']
@@ -66,7 +66,7 @@ describe('UniswapV3Pool', () => {
       spacing: number,
       firstToken: TestERC20,
       secondToken: TestERC20
-    ): Promise<[MockTimeUniswapV3Pool, any]> => {
+    ): Promise<[MockTimeAriswapV3Pool, any]> => {
       const pool = await createPool(amount, spacing, firstToken, secondToken)
       const poolFunctions = createPoolFunctions({
         swapTarget: swapTargetCallee,
